@@ -1,6 +1,6 @@
 <script setup>
 import SkillCard from './SkillCard.vue'
-import profile from '../data/profile'
+import config from '@config/site.config.json'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import profile from '../data/profile'
       <h2 class="section-title">专业技能</h2>
       <div class="cards-grid">
         <SkillCard
-          v-for="(skill, index) in profile.skills"
+          v-for="(skill, index) in config.skills"
           :key="index"
           :icon="skill.icon"
           :title="skill.title"

@@ -37,8 +37,17 @@ body {
   position: relative;
 }
 
-body::before {
-  content: '';
+.bg-image {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: var(--bg-image, none);
+  z-index: -2;
+}
+
+.bg-grid {
   position: fixed;
   inset: 0;
   background-image:
@@ -46,11 +55,10 @@ body::before {
     linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
-body::after {
-  content: '';
+.bg-glow {
   position: fixed;
   top: -30%;
   right: -20%;
@@ -58,7 +66,7 @@ body::after {
   height: 600px;
   background: radial-gradient(circle, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 #app {

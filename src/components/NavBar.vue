@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import profile from '../data/profile'
+import config from '@config/site.config.json'
 
 const isMenuOpen = ref(false)
 
@@ -17,11 +17,11 @@ function closeMenu() {
   <nav class="navbar">
     <div class="nav-container">
       <a href="#hero" class="logo">
-        <i :class="profile.site.logo"></i>
-        <span>{{ profile.site.name }}</span>
+        <i :class="config.nav.logo.icon"></i>
+        <span>{{ config.nav.logo.text }}</span>
       </a>
       <ul class="nav-menu" :class="{ active: isMenuOpen }">
-        <li v-for="item in profile.navItems" :key="item.label">
+        <li v-for="item in config.nav.items" :key="item.label">
           <a :href="item.href" @click="closeMenu">{{ item.label }}</a>
         </li>
       </ul>

@@ -1,16 +1,16 @@
 <script setup>
-import profile from '../data/profile'
+import config from '@config/site.config.json'
 </script>
 
 <template>
   <section class="hero" id="hero">
     <div class="hero-container">
       <div class="avatar">
-        <span>{{ profile.hero.avatar }}</span>
+        <span>{{ config.hero.avatar.text }}</span>
       </div>
-      <h1 class="hero-name">{{ profile.hero.name }}</h1>
-      <p class="hero-title">{{ profile.hero.title }}</p>
-      <p class="hero-desc">{{ profile.hero.description }}</p>
+      <h1 class="hero-name">{{ config.hero.name }}</h1>
+      <p class="hero-title">{{ config.hero.title }}</p>
+      <p class="hero-desc">{{ config.hero.description }}</p>
       <div class="hero-actions">
         <a href="#skills" class="btn btn-primary">
           查看技能 <i class="fas fa-arrow-right"></i>

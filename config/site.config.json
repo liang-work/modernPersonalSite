@@ -1,0 +1,73 @@
+{
+  "site": {
+    "title": "LLY · 个人主页",
+    "description": "LLY 的个人技术主页，专注于前端开发与全栈工程",
+    "keywords": "前端开发,Vue,全栈,个人主页,技术博客",
+    "favicon": "/favicon.ico",
+    "lang": "zh-CN"
+  },
+
+  "nav": {
+    "logo": {
+      "text": "LLY",
+      "icon": "fas fa-cube"
+    },
+    "items": [
+      { "label": "首页", "href": "#hero" },
+      { "label": "技能", "href": "#skills" },
+      { "label": "联系", "href": "#contact" }
+    ]
+  },
+
+  "hero": {
+    "name": "张三",
+    "title": "前端开发 / 全栈工程师",
+    "description": "热爱构建高性能的现代化 Web 应用，专注于前端工程化与全栈开发。追求极致的用户体验与代码质量。",
+    "avatar": { "text": "Z" }
+  },
+
+  "background": {
+    "color": "#0a0a14",
+    "image": "",
+    "gridOverlay": true
+  },
+
+  "accent": "#0ea5e9",
+
+  "skills": [
+    {
+      "icon": "fas fa-code",
+      "title": "前端开发",
+      "description": "Vue 3 / React / TypeScript 构建现代化 Web 应用。",
+      "tags": ["Vue 3", "React", "TypeScript"]
+    },
+    {
+      "icon": "fas fa-server",
+      "title": "Node.js 后端",
+      "description": "Koa / Express / Nest.js 构建高性能后端服务与 RESTful API。",
+      "tags": ["Node.js", "Nest.js", "MongoDB"]
+    },
+    {
+      "icon": "fas fa-mobile-alt",
+      "title": "跨端开发",
+      "description": "移动优先，一套代码适配 Web / 移动端 / 桌面端。",
+      "tags": ["Responsive", "PWA", "Electron"]
+    },
+    {
+      "icon": "fas fa-cloud",
+      "title": "DevOps 部署",
+      "description": "Docker / CI/CD 自动化部署，云原生架构与性能监控。",
+      "tags": ["Docker", "CI/CD", "Linux"]
+    }
+  ],
+
+  "social": [
+    { "name": "GitHub", "icon": "fab fa-github", "url": "https://github.com" },
+    { "name": "掘金", "icon": "fab fa-free-code-camp", "url": "https://juejin.cn" },
+    { "name": "邮箱", "icon": "fas fa-envelope", "url": "mailto:hello@example.com" }
+  ],
+
+  "footer": {
+    "copyright": "© 2026 LLY. All Rights Reserved."
+  }
+}

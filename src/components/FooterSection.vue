@@ -1,5 +1,5 @@
 <script setup>
-import profile from '../data/profile'
+import config from '@config/site.config.json'
 </script>
 
 <template>
@@ -7,7 +7,7 @@ import profile from '../data/profile'
     <div class="footer-container">
       <div class="social-links">
         <a
-          v-for="link in profile.social"
+          v-for="link in config.social"
           :key="link.name"
           :href="link.url"
           :title="link.name"
@@ -17,7 +17,7 @@ import profile from '../data/profile'
           <i :class="link.icon"></i>
         </a>
       </div>
-      <p class="copyright">{{ profile.footer.copyright }}</p>
+      <p class="copyright">{{ config.footer.copyright }}</p>
     </div>
   </footer>
 </template>
