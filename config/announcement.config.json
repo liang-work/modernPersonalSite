@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "text": "本站已全新改版，欢迎查看我的最新作品",
+  "link": "/projects.html",
+  "linkText": "前往查看 →",
+  "type": "info",
+  "dismissible": true
+}

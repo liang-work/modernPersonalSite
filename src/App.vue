@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import config from '@config/site.config.json'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
+import AnnouncementSection from './components/AnnouncementSection.vue'
 import CardGrid from './components/CardGrid.vue'
 import FooterSection from './components/FooterSection.vue'
 
@@ -18,6 +19,7 @@ const showGrid = computed(() => config.background.gridOverlay)
   <NavBar />
   <main>
     <HeroSection />
+    <AnnouncementSection />
     <CardGrid />
   </main>
   <FooterSection />

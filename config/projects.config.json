@@ -1,0 +1,36 @@
+{
+  "title": "我的作品",
+  "description": "一些值得展示的项目与探索",
+  "items": [
+    {
+      "icon": "fab fa-vuejs",
+      "title": "LLY Homepage",
+      "description": "基于 Vue 3 + Vite 的个人主页，支持多页构建与 JSON 配置驱动，纯色科技风设计。",
+      "type": "Web 应用",
+      "tags": ["Vue 3", "Vite", "CSS Grid"],
+      "image": "",
+      "license": "MIT",
+      "url": "https://github.com"
+    },
+    {
+      "icon": "fas fa-terminal",
+      "title": "CLI 工具集",
+      "description": "一套命令行效率工具，包含文件批量处理、模板生成、代码格式化等功能。",
+      "type": "命令行工具",
+      "tags": ["Node.js", "Commander", "Chalk"],
+      "image": "",
+      "license": "MIT",
+      "url": "https://github.com"
+    },
+    {
+      "icon": "fas fa-database",
+      "title": "数据看板",
+      "description": "实时数据可视化仪表盘，支持多数据源接入与自定义图表配置。",
+      "type": "数据可视化",
+      "tags": ["ECharts", "WebSocket", "React"],
+      "image": "",
+      "license": "MIT",
+      "url": "https://github.com"
+    }
+  ]
+}

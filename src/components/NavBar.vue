@@ -2,6 +2,25 @@
 import { ref } from 'vue'
 import config from '@config/site.config.json'
 
+const props = defineProps({
+  items: {
+    type: Array,
+    default: () => config.nav.items,
+  },
+  logoText: {
+    type: String,
+    default: config.nav.logo.text,
+  },
+  logoIcon: {
+    type: String,
+    default: config.nav.logo.icon,
+  },
+  logoHref: {
+    type: String,
+    default: '#hero',
+  },
+})
+
 const isMenuOpen = ref(false)
 
 function toggleMenu() {
@@ -16,12 +35,12 @@ function closeMenu() {
 <template>
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#hero" class="logo">
-        <i :class="config.nav.logo.icon"></i>
-        <span>{{ config.nav.logo.text }}</span>
+      <a :href="logoHref" class="logo">
+        <i :class="logoIcon"></i>
+        <span>{{ logoText }}</span>
       </a>
       <ul class="nav-menu" :class="{ active: isMenuOpen }">
-        <li v-for="item in config.nav.items" :key="item.label">
+        <li v-for="item in items" :key="item.label">
           <a :href="item.href" @click="closeMenu">{{ item.label }}</a>
         </li>
       </ul>
