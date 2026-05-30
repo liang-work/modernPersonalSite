@@ -1,2 +1,5 @@
 dist/
 node_modules/
+_project-entries.json
+project-*.html
+src/projects/detail/
