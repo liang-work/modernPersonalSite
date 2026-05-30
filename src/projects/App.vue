@@ -15,6 +15,26 @@ const navItems = [
 const hasBgImage = computed(() => !!config.background.image)
 const showGrid = computed(() => config.background.gridOverlay)
 const hasProjects = computed(() => projectsConfig.items && projectsConfig.items.length > 0)
+
+function slugify(title) {
+  let slug = title
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fff]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+    .replace(/--+/g, '-')
+    .replace(/(^-|-$)/g, '')
+  if (!slug || /^[\d-]+$/.test(slug)) {
+    slug = 'project-' + title.length.toString(36)
+  }
+  return slug
+}
+
+const projects = computed(() =>
+  projectsConfig.items.map((item, index) => ({
+    ...item,
+    slug: slugify(item.title) || `project-${index}`,
+  }))
+)
 </script>
 
 <template>
@@ -33,16 +53,16 @@ const hasProjects = computed(() => projectsConfig.items && projectsConfig.items.
         <p v-if="projectsConfig.description" class="section-desc">{{ projectsConfig.description }}</p>
         <div v-if="hasProjects" class="projects-grid">
           <ProjectCard
-            v-for="(item, index) in projectsConfig.items"
+            v-for="(item, index) in projects"
             :key="index"
             :icon="item.icon"
             :title="item.title"
             :description="item.description"
             :type="item.type"
             :tags="item.tags"
-            :image="item.image"
-            :license="item.license"
-            :url="item.url"
+            :status="item.status"
+            :nature="item.nature"
+            :slug="item.slug"
           />
         </div>
         <p v-else class="empty-tip">暂无作品</p>

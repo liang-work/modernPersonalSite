@@ -1,32 +1,57 @@
 <script setup>
-defineProps({
+import { computed } from 'vue'
+import IconDisplay from './IconDisplay.vue'
+
+const props = defineProps({
   icon: { type: String, default: '' },
   title: String,
   description: String,
   type: { type: String, default: '' },
   tags: { type: Array, default: () => [] },
-  image: { type: String, default: '' },
-  license: { type: String, default: '' },
-  url: { type: String, default: '' },
+  status: { type: String, default: '' },
+  nature: { type: String, default: '' },
+  slug: { type: String, default: '' },
 })
+
+const detailUrl = computed(() => `/project-${props.slug}.html`)
+
+const statusMap = {
+  active: { label: '活跃中', color: '#22c55e' },
+  'semi-abandoned': { label: '半弃坑', color: '#eab308' },
+  discontinued: { label: '已停更', color: '#ef4444' },
+  archived: { label: '已归档', color: '#6b7280' },
+}
+
+const statusInfo = computed(() => statusMap[props.status] || null)
+const natureLabel = computed(() => props.nature === 'profit' ? '盈利性' : '非盈利性')
 </script>
 
 <template>
-  <a :href="url" target="_blank" rel="noopener noreferrer" class="project-card">
+  <a :href="detailUrl" class="project-card">
     <div class="card-top">
-      <div v-if="icon" class="card-icon">
-        <i :class="icon"></i>
+      <div class="card-icon">
+        <IconDisplay :icon="icon" :size="22" />
       </div>
       <div class="card-meta">
         <span v-if="type" class="card-type">{{ type }}</span>
-        <span v-if="license" class="card-license">{{ license }}</span>
       </div>
     </div>
+
+    <div class="card-badges">
+      <span v-if="statusInfo" class="badge-status" :style="{ color: statusInfo.color }">
+        <span class="status-dot" :style="{ background: statusInfo.color }"></span>
+        {{ statusInfo.label }}
+      </span>
+      <span v-if="nature" class="badge-nature">{{ natureLabel }}</span>
+    </div>
+
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
+
     <div v-if="tags.length" class="card-tags">
       <span v-for="tag in tags" :key="tag">{{ tag }}</span>
     </div>
+
     <div class="card-footer">
       <span class="card-link">
         查看详情 <i class="fas fa-arrow-right"></i>
@@ -42,7 +67,7 @@ defineProps({
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 1.75rem;
+  padding: 1.5rem;
   transition: var(--transition);
   box-shadow: var(--shadow);
   position: relative;
@@ -76,21 +101,19 @@ defineProps({
 
 .card-top {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .card-icon {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   background: var(--accent-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
   color: var(--accent);
   flex-shrink: 0;
 }
@@ -99,60 +122,79 @@ defineProps({
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  justify-content: flex-end;
 }
 
-.card-type,
-.card-license {
+.card-type {
   font-size: 0.72rem;
   padding: 0.2rem 0.55rem;
   border-radius: 4px;
   font-weight: 500;
   letter-spacing: 0.03em;
   white-space: nowrap;
-}
-
-.card-type {
   background: var(--accent-subtle);
   color: var(--accent);
   border: 1px solid rgba(14, 165, 233, 0.12);
 }
 
-.card-license {
-  background: rgba(255, 255, 255, 0.05);
+.card-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge-status {
+  font-size: 0.72rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  letter-spacing: 0.03em;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.badge-nature {
+  font-size: 0.72rem;
   color: var(--text-muted);
-  border: 1px solid var(--border-color);
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 .project-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .project-card p {
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   flex: 1;
 }
 
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.25rem;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
 }
 
 .card-tags span {
   background: var(--accent-subtle);
   color: var(--accent);
-  padding: 0.2rem 0.65rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  font-size: 0.73rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.03em;
   border: 1px solid rgba(14, 165, 233, 0.12);
@@ -164,7 +206,7 @@ defineProps({
 
 .card-link {
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;

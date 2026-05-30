@@ -5,32 +5,50 @@
     {
       "icon": "fab fa-vuejs",
       "title": "LLY Homepage",
-      "description": "基于 Vue 3 + Vite 的个人主页，支持多页构建与 JSON 配置驱动，纯色科技风设计。",
+      "description": "基于 Vue 3 + Vite 的个人主页，JSON 配置驱动，科技风设计。",
+      "fullDescription": "基于 Vue 3 + Vite 构建的现代化个人主页，采用纯色科技风设计。支持 JSON 配置文件驱动全站内容，多页面独立构建，无需后端即可部署。集成公告系统、作品展示、响应式布局等功能。",
       "type": "Web 应用",
       "tags": ["Vue 3", "Vite", "CSS Grid"],
-      "image": "",
-      "license": "MIT",
-      "url": "https://github.com"
+      "status": "active",
+      "nature": "non-profit",
+      "authors": ["张三"],
+      "links": [
+        { "label": "GitHub 仓库", "url": "https://github.com" },
+        { "label": "在线预览", "url": "https://example.com" }
+      ],
+      "license": "MIT"
     },
     {
       "icon": "fas fa-terminal",
       "title": "CLI 工具集",
-      "description": "一套命令行效率工具，包含文件批量处理、模板生成、代码格式化等功能。",
+      "description": "一套命令行效率工具，包含文件批量处理与模板生成。",
+      "fullDescription": "一套使用 Node.js 开发的命令行效率工具集。提供文件批量重命名、项目模板一键生成、代码格式化检查等功能。采用 Commander.js 构建命令行交互，Chalk 实现彩色输出，注重开发者体验。",
       "type": "命令行工具",
       "tags": ["Node.js", "Commander", "Chalk"],
-      "image": "",
-      "license": "MIT",
-      "url": "https://github.com"
+      "status": "semi-abandoned",
+      "nature": "non-profit",
+      "authors": ["张三"],
+      "links": [
+        { "label": "GitHub 仓库", "url": "https://github.com" }
+      ],
+      "license": "MIT"
     },
     {
-      "icon": "fas fa-database",
+      "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/echarts.svg",
       "title": "数据看板",
-      "description": "实时数据可视化仪表盘，支持多数据源接入与自定义图表配置。",
+      "description": "实时数据可视化仪表盘，支持多数据源接入。",
+      "fullDescription": "实时数据可视化仪表盘项目，支持接入多种数据源（MySQL、API、WebSocket）。基于 ECharts 实现丰富的图表类型，支持自定义配置面板与拖拽式布局。适用于运维监控与业务数据展示场景。",
       "type": "数据可视化",
       "tags": ["ECharts", "WebSocket", "React"],
-      "image": "",
-      "license": "MIT",
-      "url": "https://github.com"
+      "status": "active",
+      "nature": "profit",
+      "authors": ["张三", "李四"],
+      "links": [
+        { "label": "在线演示", "url": "https://example.com" },
+        { "label": "GitHub", "url": "https://github.com" },
+        { "label": "相关文章", "url": "https://blog.example.com" }
+      ],
+      "license": "GPL-3.0"
     }
   ]
 }

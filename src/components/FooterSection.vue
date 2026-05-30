@@ -1,5 +1,6 @@
 <script setup>
 import config from '@config/site.config.json'
+import IconDisplay from './IconDisplay.vue'
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import config from '@config/site.config.json'
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i :class="link.icon"></i>
+          <IconDisplay :icon="link.icon" :size="18" />
         </a>
       </div>
       <p class="copyright">{{ config.footer.copyright }}</p>

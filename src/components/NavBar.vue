@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import config from '@config/site.config.json'
+import IconDisplay from './IconDisplay.vue'
 
 const props = defineProps({
   items: {
@@ -36,7 +37,7 @@ function closeMenu() {
   <nav class="navbar">
     <div class="nav-container">
       <a :href="logoHref" class="logo">
-        <i :class="logoIcon"></i>
+        <IconDisplay :icon="logoIcon" :size="22" />
         <span>{{ logoText }}</span>
       </a>
       <ul class="nav-menu" :class="{ active: isMenuOpen }">

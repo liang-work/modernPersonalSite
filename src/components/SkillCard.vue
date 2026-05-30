@@ -1,4 +1,6 @@
 <script setup>
+import IconDisplay from './IconDisplay.vue'
+
 defineProps({
   icon: String,
   title: String,
@@ -10,7 +12,7 @@ defineProps({
 <template>
   <div class="skill-card">
     <div class="card-icon">
-      <i :class="icon"></i>
+      <IconDisplay :icon="icon" :size="22" />
     </div>
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
