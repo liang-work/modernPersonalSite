@@ -1,0 +1,46 @@
+{
+  "title": "链接",
+  "description": "我的网络足迹与友情链接",
+  "items": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com",
+      "icon": "fab fa-github",
+      "type": "personal",
+      "description": "GitHub 主页，开源项目与代码仓库"
+    },
+    {
+      "name": "掘金",
+      "url": "https://juejin.cn",
+      "icon": "fab fa-free-code-camp",
+      "type": "collaboration",
+      "description": "技术文章与专栏"
+    },
+    {
+      "name": "知乎",
+      "url": "https://zhihu.com",
+      "icon": "fab fa-zhihu",
+      "type": "personal"
+    },
+    {
+      "name": "SegmentFault",
+      "url": "https://segmentfault.com",
+      "icon": "fas fa-tag",
+      "type": "collaboration",
+      "description": "技术问答与分享"
+    },
+    {
+      "name": "XXX 的博客",
+      "url": "https://example.com",
+      "icon": "fas fa-blog",
+      "type": "friend",
+      "description": "一位好友的个人技术博客"
+    },
+    {
+      "name": "YYY 工作室",
+      "url": "https://example.org",
+      "icon": "fas fa-users",
+      "type": "friend"
+    }
+  ]
+}

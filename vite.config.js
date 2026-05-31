@@ -27,6 +27,7 @@ export default defineConfig({
       input: {
         index: fileURLToPath(new URL('./index.html', import.meta.url)),
         projects: fileURLToPath(new URL('./projects.html', import.meta.url)),
+        links: fileURLToPath(new URL('./links.html', import.meta.url)),
         ...getProjectEntries(),
       }
     }

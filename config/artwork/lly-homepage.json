@@ -1,0 +1,16 @@
+{
+  "icon": "fab fa-vuejs",
+  "title": "LLY Homepage",
+  "description": "基于 Vue 3 + Vite 的个人主页，JSON 配置驱动，科技风设计。",
+  "fullDescription": "基于 Vue 3 + Vite 构建的现代化个人主页，采用纯色科技风设计。支持 JSON 配置文件驱动全站内容，多页面独立构建，无需后端即可部署。集成公告系统、作品展示、响应式布局等功能。",
+  "type": "Web 应用",
+  "tags": ["Vue 3", "Vite", "CSS Grid"],
+  "status": "active",
+  "nature": "non-profit",
+  "authors": ["张三"],
+  "links": [
+    { "label": "GitHub 仓库", "url": "https://github.com" },
+    { "label": "在线预览", "url": "https://example.com" }
+  ],
+  "license": "MIT"
+}

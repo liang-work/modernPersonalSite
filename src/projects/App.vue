@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import config from '@config/site.config.json'
-import projectsConfig from '@config/projects.config.json'
+import projectsData from '@config/_projects-data.json'
 import NavBar from '../components/NavBar.vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import AnnouncementSection from '../components/AnnouncementSection.vue'
@@ -14,7 +14,7 @@ const navItems = [
 
 const hasBgImage = computed(() => !!config.background.image)
 const showGrid = computed(() => config.background.gridOverlay)
-const hasProjects = computed(() => projectsConfig.items && projectsConfig.items.length > 0)
+const hasProjects = computed(() => projectsData.items && projectsData.items.length > 0)
 
 function slugify(title) {
   let slug = title
@@ -30,7 +30,7 @@ function slugify(title) {
 }
 
 const projects = computed(() =>
-  projectsConfig.items.map((item, index) => ({
+  projectsData.items.map((item, index) => ({
     ...item,
     slug: slugify(item.title) || `project-${index}`,
   }))
@@ -49,8 +49,8 @@ const projects = computed(() =>
 
     <section class="projects-section" id="projects">
       <div class="container">
-        <h2 class="section-title">{{ projectsConfig.title }}</h2>
-        <p v-if="projectsConfig.description" class="section-desc">{{ projectsConfig.description }}</p>
+        <h2 class="section-title">{{ projectsData.title }}</h2>
+        <p v-if="projectsData.description" class="section-desc">{{ projectsData.description }}</p>
         <div v-if="hasProjects" class="projects-grid">
           <ProjectCard
             v-for="(item, index) in projects"

@@ -1,0 +1,17 @@
+{
+  "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/echarts.svg",
+  "title": "数据看板",
+  "description": "实时数据可视化仪表盘，支持多数据源接入。",
+  "fullDescription": "实时数据可视化仪表盘项目，支持接入多种数据源（MySQL、API、WebSocket）。基于 ECharts 实现丰富的图表类型，支持自定义配置面板与拖拽式布局。适用于运维监控与业务数据展示场景。",
+  "type": "数据可视化",
+  "tags": ["ECharts", "WebSocket", "React"],
+  "status": "active",
+  "nature": "profit",
+  "authors": ["张三", "李四"],
+  "links": [
+    { "label": "在线演示", "url": "https://example.com" },
+    { "label": "GitHub", "url": "https://github.com" },
+    { "label": "相关文章", "url": "https://blog.example.com" }
+  ],
+  "license": "GPL-3.0"
+}

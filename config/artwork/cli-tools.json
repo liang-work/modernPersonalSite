@@ -1,0 +1,15 @@
+{
+  "icon": "fas fa-terminal",
+  "title": "CLI 工具集",
+  "description": "一套命令行效率工具，包含文件批量处理与模板生成。",
+  "fullDescription": "一套使用 Node.js 开发的命令行效率工具集。提供文件批量重命名、项目模板一键生成、代码格式化检查等功能。采用 Commander.js 构建命令行交互，Chalk 实现彩色输出，注重开发者体验。",
+  "type": "命令行工具",
+  "tags": ["Node.js", "Commander", "Chalk"],
+  "status": "semi-abandoned",
+  "nature": "non-profit",
+  "authors": ["张三"],
+  "links": [
+    { "label": "GitHub 仓库", "url": "https://github.com" }
+  ],
+  "license": "MIT"
+}

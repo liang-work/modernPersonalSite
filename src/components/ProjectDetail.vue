@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import config from '@config/site.config.json'
-import projectsConfig from '@config/projects.config.json'
+import projectsData from '@config/_projects-data.json'
 import NavBar from './NavBar.vue'
 import IconDisplay from './IconDisplay.vue'
 import AnnouncementSection from './AnnouncementSection.vue'
@@ -11,7 +11,7 @@ const props = defineProps({
   projectIndex: { type: Number, required: true },
 })
 
-const project = computed(() => projectsConfig.items[props.projectIndex])
+const project = computed(() => projectsData.items[props.projectIndex])
 
 const navItems = [
   { label: '首页', href: '/' },

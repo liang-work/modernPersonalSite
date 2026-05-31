@@ -1,16 +1,16 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import config from '@config/site.config.json'
-import projectsData from '@config/_projects-data.json'
+import linksConfig from '@config/links.config.json'
 import '../styles/global.css'
 
-document.title = `${projectsData.title} · ${config.site.title}`
+document.title = `${linksConfig.title} · ${config.site.title}`
 
 const metaDesc = document.querySelector('meta[name="description"]')
 if (!metaDesc) {
   const el = document.createElement('meta')
   el.setAttribute('name', 'description')
-  el.setAttribute('content', projectsData.description)
+  el.setAttribute('content', linksConfig.description)
   document.head.appendChild(el)
 }
 
@@ -29,7 +29,6 @@ if (accentRgb) {
 }
 
 document.documentElement.style.setProperty('--bg-primary', config.background.color)
-
 if (config.background.image) {
   document.documentElement.style.setProperty('--bg-image', `url(${config.background.image})`)
 }
