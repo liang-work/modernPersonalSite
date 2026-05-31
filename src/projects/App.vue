@@ -8,11 +8,6 @@ import AnnouncementSection from '../components/AnnouncementSection.vue'
 import SearchFilter from '../components/SearchFilter.vue'
 import FooterSection from '../components/FooterSection.vue'
 
-const navItems = [
-  { label: '首页', href: '/' },
-  { label: '作品', href: '#projects' },
-]
-
 const hasBgImage = computed(() => !!config.background.image)
 const showGrid = computed(() => config.background.gridOverlay)
 const hasProjects = computed(() => projectsData.items && projectsData.items.length > 0)
@@ -66,7 +61,7 @@ const filterGroups = [
   <div v-if="showGrid" class="bg-grid"></div>
   <div class="bg-glow"></div>
 
-  <NavBar :items="navItems" />
+  <NavBar />
 
   <main>
     <AnnouncementSection />
