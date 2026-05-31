@@ -5,11 +5,25 @@ import linksConfig from '@config/links.config.json'
 import NavBar from '../components/NavBar.vue'
 import AnnouncementSection from '../components/AnnouncementSection.vue'
 import LinkCard from '../components/LinkCard.vue'
+import SearchFilter from '../components/SearchFilter.vue'
 import FooterSection from '../components/FooterSection.vue'
 
 const hasBgImage = computed(() => !!config.background.image)
 const showGrid = computed(() => config.background.gridOverlay)
 const hasLinks = computed(() => linksConfig.items && linksConfig.items.length > 0)
+
+const filterGroups = [
+  {
+    field: 'type',
+    label: '类型',
+    options: [
+      { label: '全部', value: '' },
+      { label: '个人账号', value: 'personal' },
+      { label: '合作账号', value: 'collaboration' },
+      { label: '友链', value: 'friend' },
+    ],
+  },
+]
 </script>
 
 <template>
@@ -25,16 +39,29 @@ const hasLinks = computed(() => linksConfig.items && linksConfig.items.length > 
       <div class="container">
         <h2 class="section-title">{{ linksConfig.title }}</h2>
         <p v-if="linksConfig.description" class="section-desc">{{ linksConfig.description }}</p>
-        <div v-if="hasLinks" class="links-grid">
-          <LinkCard
-            v-for="(item, index) in linksConfig.items"
-            :key="index"
-            :name="item.name"
-            :url="item.url"
-            :icon="item.icon"
-            :type="item.type"
-            :description="item.description"
-          />
+
+        <div v-if="hasLinks">
+          <SearchFilter
+            :items="linksConfig.items"
+            :search-fields="['name', 'description']"
+            placeholder="搜索链接..."
+            :filter-groups="filterGroups"
+          >
+            <template #default="{ filtered }">
+              <div v-if="filtered.length" class="links-grid">
+                <LinkCard
+                  v-for="(item, index) in filtered"
+                  :key="index"
+                  :name="item.name"
+                  :url="item.url"
+                  :icon="item.icon"
+                  :type="item.type"
+                  :description="item.description"
+                />
+              </div>
+              <p v-else class="empty-tip">未找到匹配项</p>
+            </template>
+          </SearchFilter>
         </div>
         <p v-else class="empty-tip">暂无链接</p>
       </div>

@@ -5,6 +5,7 @@ import projectsData from '@config/_projects-data.json'
 import NavBar from '../components/NavBar.vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import AnnouncementSection from '../components/AnnouncementSection.vue'
+import SearchFilter from '../components/SearchFilter.vue'
 import FooterSection from '../components/FooterSection.vue'
 
 const navItems = [
@@ -35,6 +36,29 @@ const projects = computed(() =>
     slug: slugify(item.title) || `project-${index}`,
   }))
 )
+
+const filterGroups = [
+  {
+    field: 'status',
+    label: '状态',
+    options: [
+      { label: '全部', value: '' },
+      { label: '活跃中', value: 'active' },
+      { label: '半弃坑', value: 'semi-abandoned' },
+      { label: '已停更', value: 'discontinued' },
+      { label: '已归档', value: 'archived' },
+    ],
+  },
+  {
+    field: 'nature',
+    label: '性质',
+    options: [
+      { label: '全部', value: '' },
+      { label: '盈利性', value: 'profit' },
+      { label: '非盈利性', value: 'non-profit' },
+    ],
+  },
+]
 </script>
 
 <template>
@@ -51,19 +75,32 @@ const projects = computed(() =>
       <div class="container">
         <h2 class="section-title">{{ projectsData.title }}</h2>
         <p v-if="projectsData.description" class="section-desc">{{ projectsData.description }}</p>
-        <div v-if="hasProjects" class="projects-grid">
-          <ProjectCard
-            v-for="(item, index) in projects"
-            :key="index"
-            :icon="item.icon"
-            :title="item.title"
-            :description="item.description"
-            :type="item.type"
-            :tags="item.tags"
-            :status="item.status"
-            :nature="item.nature"
-            :slug="item.slug"
-          />
+
+        <div v-if="hasProjects">
+          <SearchFilter
+            :items="projects"
+            :search-fields="['title', 'description', 'tags', 'type', 'authors']"
+            placeholder="搜索作品..."
+            :filter-groups="filterGroups"
+          >
+            <template #default="{ filtered }">
+              <div v-if="filtered.length" class="projects-grid">
+                <ProjectCard
+                  v-for="(item, index) in filtered"
+                  :key="index"
+                  :icon="item.icon"
+                  :title="item.title"
+                  :description="item.description"
+                  :type="item.type"
+                  :tags="item.tags"
+                  :status="item.status"
+                  :nature="item.nature"
+                  :slug="item.slug"
+                />
+              </div>
+              <p v-else class="empty-tip">未找到匹配项</p>
+            </template>
+          </SearchFilter>
         </div>
         <p v-else class="empty-tip">暂无作品</p>
       </div>
