@@ -1,9 +1,10 @@
 {
   "site": {
+    "url": "",
     "title": "LLY · 个人主页",
     "description": "LLY 的个人技术主页，专注于前端开发与全栈工程",
     "keywords": "前端开发,Vue,全栈,个人主页,技术博客",
-    "favicon": "/favicon.ico",
+    "favicon": "/favicon.svg",
     "lang": "zh-CN"
   },
 

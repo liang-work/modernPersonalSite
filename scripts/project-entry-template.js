@@ -5,8 +5,6 @@ import '../../../styles/global.css'
 
 const projectIndex = __INDEX__
 
-document.title = 'loading...'
-
 function hexToRgb(hex) {
   const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return r ? { r: parseInt(r[1], 16), g: parseInt(r[2], 16), b: parseInt(r[3], 16) } : null

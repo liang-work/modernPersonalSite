@@ -35,6 +35,16 @@ import { onMounted } from 'vue'
 onMounted(() => {
   if (project.value) {
     document.title = `${project.value.title} · ${config.site.title}`
+    const desc = project.value.description || project.value.title
+    const el = document.querySelector('meta[name="description"]')
+    if (el) {
+      el.setAttribute('content', desc)
+    } else {
+      const meta = document.createElement('meta')
+      meta.setAttribute('name', 'description')
+      meta.setAttribute('content', desc)
+      document.head.appendChild(meta)
+    }
   }
 })
 </script>

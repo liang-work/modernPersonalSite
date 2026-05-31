@@ -4,16 +4,6 @@ import config from '@config/site.config.json'
 import linksConfig from '@config/links.config.json'
 import '../styles/global.css'
 
-document.title = `${linksConfig.title} · ${config.site.title}`
-
-const metaDesc = document.querySelector('meta[name="description"]')
-if (!metaDesc) {
-  const el = document.createElement('meta')
-  el.setAttribute('name', 'description')
-  el.setAttribute('content', linksConfig.description)
-  document.head.appendChild(el)
-}
-
 function hexToRgb(hex) {
   const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return r ? { r: parseInt(r[1], 16), g: parseInt(r[2], 16), b: parseInt(r[3], 16) } : null
