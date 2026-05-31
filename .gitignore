@@ -3,3 +3,4 @@ node_modules/
 _project-entries.json
 project-*.html
 src/projects/detail/
+config/_projects-data.json
